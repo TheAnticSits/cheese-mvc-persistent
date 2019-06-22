@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+
+<table class="table">
+
+    <tr>
+        <th>Categories!!!!!</th>
+    </tr>
+
+    <ul> <!-- Unordered List for Categories -->
+        <li th:each="category:${categories}" th:text="${category.name}"></li>
+    </ul>
+
+
+
+    <form th:object="${category}" method="post">
+
+        <div class="form-group">
+            <label th:for="name">Add Category</label>
+            <input text="${name}"/>
+<!--            <span th:errors="*{errors}" class="error"></span>-->
+        </div>
+
+
+        <input type="submit" value="Add Category" />
+    </form>
+</table>
 </body>
 </html>
-
-//////unordered list

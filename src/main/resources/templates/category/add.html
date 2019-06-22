@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<form th:object="${category}">
+
+    <div>
+        <label th:for="category">Name</label>
+        <input th:field="*{category}" />
+        <span th:errors="*{category}" class="error"></span>
+
+    </div>
+
+</form>
+
+</body>
+</html>
