@@ -40,17 +40,16 @@ public class CategoryController {
 
         model.addAttribute(new Category());
         model.addAttribute("title", "Add Category");
-        return "add";
+        return "category/add";
     }
 
     ////////////////////////POST/////////////POST///////////////////////POST////////////////////////////////////////
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model,
-                      @ModelAttribute @Valid Category category, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid Category category, Errors errors) {
 
         if (errors.hasErrors()) {
 
-            return "add";
+            return "category/add";
         }
 
         categoryDao.save(category);

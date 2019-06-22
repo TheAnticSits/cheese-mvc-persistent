@@ -19,17 +19,20 @@
 
 
 
-    <form th:object="${category}" method="post">
+<!--    <form th:object="${category}" method="post">
 
         <div class="form-group">
             <label th:for="name">Add Category</label>
             <input text="${name}"/>
-<!--            <span th:errors="*{errors}" class="error"></span>-->
+            <span th:errors="${category}" class="errors"></span>
         </div>
 
 
         <input type="submit" value="Add Category" />
-    </form>
+    </form>-->
 </table>
+<!--    ///////////////////////LINK TO ADD CATEGORY DONE PER INSTRUCTIONS////////////////////////-->
+<a href="/category/add" value="Add Category">Add Category</a>
+
 </body>
 </html>
