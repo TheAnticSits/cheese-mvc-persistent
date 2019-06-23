@@ -28,9 +28,9 @@ public class CategoryController {
     public String index(Model model) {
 
         Iterable<Category> categories = categoryDao.findAll();
-
-        model.addAttribute(categories);
         model.addAttribute("title", "Categories");
+        model.addAttribute("categories", categories);
+
 
         return "category/index";
     }
