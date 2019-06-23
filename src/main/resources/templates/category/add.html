@@ -6,15 +6,15 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<form th:object="${category}" th:method="get">
+<form th:object="${category}" th:method="post">
 
     <div>
-        <label th:for="name">Add Category</label>
-        <input th:text="${name}" />
-        <span th:errors="${category}" class="error"></span>
+        <label th:for="name">Right Here ---></label>
+        <input th:text="*{name}" />
+        <span th:errors="*{name}" class="errors"></span>
 
     </div>
-
+    <input type="submit" value="Do it" />
 </form>
 
 </body>
