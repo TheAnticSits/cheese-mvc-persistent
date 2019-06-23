@@ -23,6 +23,7 @@ public class CategoryController {
     @Autowired
     private CategoryDao categoryDao;
 
+
     @RequestMapping(value = "")
     public String index(Model model) {
 
@@ -35,20 +36,25 @@ public class CategoryController {
     }
 ///////////////////////////////CONTROLLER HANDLERS to Render and Process the Form////////////////////////////////////
     /////////////////////////////GET////////GET///////////GET///////////////////////////////////////////////////////
+
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
 
-        model.addAttribute(new Category());
+
         model.addAttribute("title", "Add Category");
+        model.addAttribute(new Category());
+
         return "category/add";
     }
 
     ////////////////////////POST/////////////POST///////////////////////POST////////////////////////////////////////
+
+
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid Category category, Errors errors) {
 
-        if (errors.hasErrors()) {
-
+        if(errors.hasErrors()) {
+            model.addAttribute("title", "Add Category");
             return "category/add";
         }
 
