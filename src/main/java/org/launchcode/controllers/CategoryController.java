@@ -2,8 +2,6 @@ package org.launchcode.controllers;
 
 
 import org.launchcode.models.Category;
-import org.launchcode.models.Cheese;
-import org.launchcode.models.CheeseType;
 import org.launchcode.models.data.CategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 @RequestMapping("category")
@@ -48,15 +45,18 @@ public class CategoryController {
     }
 
     ////////////////////////POST/////////////POST///////////////////////POST////////////////////////////////////////
-
-
+    //ModelAttribute binds the object to this handler///////Valid makes sure that validation is satisfied///////////
+    //Errors errors should come after the model that it is associated with//
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid Category category, Errors errors) {
+
+        /////////////check for errors if there are errors return to add/////////////////////////
 
         if(errors.hasErrors()) {
             model.addAttribute("title", "Add Category");
             return "category/add";
         }
+        ////////////////if no errors save the new item and return to the index///////////////////////////////////
 
         categoryDao.save(category);
         return "redirect:";
