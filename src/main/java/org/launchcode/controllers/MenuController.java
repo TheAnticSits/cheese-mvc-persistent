@@ -33,7 +33,7 @@ public class MenuController {
         model.addAttribute("title", "Menus");
         model.addAttribute("menus", menuDao.findAll());
 
-        return "menu/index.html";
+        return "menu/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
@@ -90,7 +90,7 @@ public class MenuController {
         theMenu.addItem(theCheese);
         menuDao.save(theMenu);
 
-        return "redirect:/menu/view/"+theMenu.getId();
+        return "redirect:/menu/view/" + theMenu.getId();
     }
 
 }
