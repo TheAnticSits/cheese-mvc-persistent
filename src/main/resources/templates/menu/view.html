@@ -9,14 +9,12 @@
         <nav th:replace="fragments :: navigation"></nav>
 
         <ul>
-            <li th:each="menu : ${menus}">
-                <a th:href="'menu/view' + ${menu.id}" th:text="${menu.name}"></a>
-            </li>
+            <li th:each="cheese : ${cheeses}" th:text="cheese.name}"></li>
         </ul>
 
+        <p th:unless="${cheeses.size()}"><i>No Cheese 'til Brooklyn</i></p>
 
-        <p><a href="/menu/add" value="Add Menu">Add Menu</a></p>
-
+        <p><a th:href="'/menu/add-item' + ${menuId}">Add Cheese</a></p>
 
     </body>
 </html>
