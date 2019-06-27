@@ -70,10 +70,10 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam int[] ids) {
+    public String processRemoveCheeseForm(@RequestParam int[] cheeseIds) {
 
-        for (int id : ids) {
-            cheeseDao.delete(id);
+        for (int cheeseId : cheeseIds) {
+            cheeseDao.delete(cheeseId);
         }
         return "redirect:";
     }

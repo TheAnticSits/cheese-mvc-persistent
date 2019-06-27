@@ -11,13 +11,13 @@
 <form th:method="post" th:object="${category}" >
 
     <div class="form-group">
-        <label th:for="name">Right Here ---></label>
+        <label th:for="name">In this box right here</label>
         <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
 
     </div>
     <input type="submit" value="Do it" />
 </form>
-
+<div>If you changed your mind click <a href="/cheese">Right Here</a> to go back Home</div>
 </body>
 </html>
