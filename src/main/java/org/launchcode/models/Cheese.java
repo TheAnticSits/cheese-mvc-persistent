@@ -34,7 +34,7 @@ public class Cheese {
     //////////Added for the Menu Class//This field will configure the other side of our many-to-many relationship////
     //////represents the list of Menu objects that a given cheese is contained in.///////////////////////////////////
     //The items in Menu.cheeses should correspond to Cheese objects that have a given Menu object in their menus list.//
-    @ManyToMany(mappedBy = "cheeses")
+    @ManyToMany(mappedBy = "cheeses",  cascade = CascadeType.ALL)
     private List<Menu> menus;
 
     public Cheese(String name, String description) {
